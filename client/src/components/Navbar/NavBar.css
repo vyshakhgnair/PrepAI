@@ -1,3 +1,30 @@
-.navbar{
-    height: 10vh;
-}
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: #333;
+  }
+  
+  .logo img {
+    height: 50px; /* Adjust height as needed */
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+  }
+  
+  .nav-links li {
+    margin-right: 1rem;
+  }
+  
+  .nav-links li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .nav-links li a:hover {
+    text-decoration: underline;
+  }
+  
