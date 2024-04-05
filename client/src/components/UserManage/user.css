@@ -5,9 +5,9 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: rgb(255,255,255);
-background: linear-gradient(170deg, rgba(255,255,255,1) 0%, rgba(180,180,249,0.8211659663865546) 52%, rgba(0,212,255,1) 98%);
-}
+background: rgb(255,255,255);
+background: linear-gradient(170deg, rgba(255,255,255,1) 0%, rgba(64,64,193,0.8211659663865546) 52%, rgba(0,212,255,1) 98%);  }
+  
   .login-form {
     background-color: #fff; /* White background for the form */
     padding: 20px;
@@ -21,6 +21,7 @@ background: linear-gradient(170deg, rgba(255,255,255,1) 0%, rgba(180,180,249,0.8
   }
   
   input[type='text'],
+  input[type='email'],
   input[type='password'] {
     width: 90%;
     padding: 10px;

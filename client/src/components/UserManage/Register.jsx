@@ -3,8 +3,10 @@ import './user.css';
 import logo from '../../images/logo/prepai-logo.png';
 
 const Register = () => {
-  const [username, setUsername] = useState('');
+  const [uname, setUname] = useState('');
   const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,15 +20,27 @@ const Register = () => {
         <h2>Register</h2>
         <input
           type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          placeholder="Name"
+          value={uname}
+          onChange={(e) => setUname(e.target.value)}
+        />
+        <input
+          type="email"
+          placeholder="Email-id"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <input
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Phone Number"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
         />
         <button type="submit">Login</button>
       </form>
