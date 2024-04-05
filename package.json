@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "cd client && npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/vyshakhgnair/PrepAI/issues"
   },
-  "homepage": "https://github.com/vyshakhgnair/PrepAI#readme"
+  "homepage": "https://github.com/vyshakhgnair/PrepAI#readme",
+  "dependencies": {
+    "react-router-dom": "^6.22.3"
+  }
 }
