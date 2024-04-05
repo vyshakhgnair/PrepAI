@@ -1,0 +1,18 @@
+Workflow for PrepAI
+- Frontend
+	- Landing page
+		- Resume tracker
+	- Resume tracker
+	- Login page
+	- Dashboard page
+		- Filters for interview or test
+		- Previous performance
+	- Voice chat
+	- result analysis
+	
+- Backend
+	- LLms
+	- dataset creation : Done
+	- 
+	
+	
