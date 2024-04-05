@@ -1,0 +1,47 @@
+.container {
+    max-width: 600px;
+    margin: 50px auto; /* Added more top margin for better centering */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px; /* Increased border radius for a softer look */
+    background-color: #fff; /* Changed background color to white */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added a slight shadow for depth */
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-bottom: 10px; /* Increased margin for better spacing */
+  }
+  
+  input[type="file"] {
+    margin-bottom: 20px; /* Increased margin for better spacing */
+  }
+  
+  textarea {
+    height: 150px;
+    margin-bottom: 20px; /* Increased margin for better spacing */
+    resize: vertical;
+  }
+  
+  .submit-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .submit-button:hover {
+    background-color: #0056b3;
+  }
+  

@@ -3,11 +3,14 @@ import './App.css';
 import Landing from './components/LandingPage/Landing';
 // import DashBoard from './components/DashBoard/DashBoard';
 
+
+
 function App() {
   
   return (
     <div className="App">
-<Landing/>
+      <Landing/>
+      
     </div>    
   );
 }
