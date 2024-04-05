@@ -28,22 +28,30 @@ function Landing() {
       <section className="features-section" id="features">
 
         <div className="features-content">
-          <h2>Features</h2>
+          <h1>Features</h1>
           <div className="feature-container">
           <div className="feature-content">
             <h2 className="feature-title">Experience the Future Today</h2>
             <p className="feature-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             <button className="cta-button">Get Started</button>
           </div>
-          <img src="https://img.freepik.com/free-vector/online-interview-employee-employer_23-2148620898.jpg?w=826&t=st=1712327177~exp=1712327777~hmac=744553b5a742d8615df8113b54919e3e03ba7bceca0b7bc7e647c69fba920585" alt="Futuristic Hero" className="hero-image" />
+          <img src="https://img.freepik.com/free-vector/marketing-professional-presenting-financial-chart-boss_74855-10928.jpg?w=2000" alt="Futuristic Hero" className="hero-image" />
         </div>
         <div className="feature-container">
-          <img src="https://img.freepik.com/free-vector/online-interview-employee-employer_23-2148620898.jpg?w=826&t=st=1712327177~exp=1712327777~hmac=744553b5a742d8615df8113b54919e3e03ba7bceca0b7bc7e647c69fba920585" alt="Futuristic Hero" className="hero-image" />
+          <img src="https://img.freepik.com/free-vector/choosing-best-candidate-concept_52683-43377.jpg?w=2000" alt="Futuristic Hero" className="hero-image" />
           <div className="feature-content">
             <h2 className="feature-title">Experience the Future Today</h2>
             <p className="feature-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             <button className="cta-button">Get Started</button>
           </div>
+        </div>
+        <div className="feature-container">
+          <div className="feature-content">
+            <h2 className="feature-title">Experience the Future Today</h2>
+            <p className="feature-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <button className="cta-button">Get Started</button>
+          </div>
+          <img src="https://img.freepik.com/free-vector/office-workers-analyzing-researching-business-data_74855-4445.jpg?w=1380" alt="Futuristic Hero" className="hero-image" />
         </div>
         </div>
       </section>
