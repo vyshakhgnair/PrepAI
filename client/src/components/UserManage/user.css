@@ -1,0 +1,46 @@
+/* Login.css */
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: rgb(255,255,255);
+background: linear-gradient(170deg, rgba(255,255,255,1) 0%, rgba(180,180,249,0.8211659663865546) 52%, rgba(0,212,255,1) 98%);
+}
+  .login-form {
+    background-color: #fff; /* White background for the form */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .logo {
+    width: 300px; /* Adjust the width as needed */
+    margin-bottom: 20px; 
+
+  }
+  
+  input[type='text'],
+  input[type='password'] {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff; /* Green button color */
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #007bff; /* Darker green on hover */
+  }
+  
