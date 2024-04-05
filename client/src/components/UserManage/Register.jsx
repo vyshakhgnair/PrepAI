@@ -9,25 +9,6 @@ const Register = () => {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     const response = await axios.post('http://localhost:3001/register', {
-  //       name: uname,
-  //       email,
-  //       password,
-  //       phone,
-  //     });
-  //     if (response.data.user) {
-  //       // Registration successful, redirect to landing page or show a success message
-  //     } else {
-  //       // Show an error message
-  //     }
-  //   } catch (error) {
-  //     // Handle error
-  //   }
-  // };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -37,7 +18,7 @@ const Register = () => {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          name: uname,
+          uname, // Ensure this matches the expected field name in your backend
           email,
           password,
           phone,
@@ -61,7 +42,7 @@ const Register = () => {
         <h2>Register</h2>
         <input
           type="text"
-          placeholder="Name"
+          placeholder="Username" // Changed placeholder to match expected field name
           value={uname}
           onChange={(e) => setUname(e.target.value)}
         />
@@ -83,7 +64,7 @@ const Register = () => {
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
         />
-        <button type="submit" onClick={handleSubmit}>Register</button>
+        <button type="submit">Register</button> {/* Removed onClick event */}
       </form>
     </div>
   );
