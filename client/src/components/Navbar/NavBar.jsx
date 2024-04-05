@@ -1,11 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Import Router as BrowserRouter
-
+import { Link } from 'react-router-dom';
 import logo from '../../images/logo/prepai-logo.png';
+import './NavBar.css'; 
 
 function NavBar() {
   return (
-    <nav>
+    <nav className="navbar"> 
       <div className="navbar-container">
         <div className="logo">
           <Link to="/">
@@ -17,10 +17,10 @@ function NavBar() {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <Link to="/ats">ATS Tracker</Link>
           </li>
           <li>
-            <Link to="/contact">Contact</Link>
+            <Link to="/login">Login</Link>
           </li>
         </ul>
       </div>

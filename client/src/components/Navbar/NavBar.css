@@ -1,30 +1,47 @@
+.navbar {
+  position: fixed; /* Fixed positioning */
+  height: 10VH;
+  top: 0; /* Position it at the top */
+  width: 100%; /* Full width */
+  background-color: #fff; /* Background color */
+  z-index: 1000; /* Ensure it's above other content */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.144); /* Add shadow for depth */
+}
+
 .navbar-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem;
-    background-color: #333;
-  }
-  
-  .logo img {
-    height: 50px; /* Adjust height as needed */
-  }
-  
-  .nav-links {
-    list-style: none;
-    display: flex;
-  }
-  
-  .nav-links li {
-    margin-right: 1rem;
-  }
-  
-  .nav-links li a {
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  .nav-links li a:hover {
-    text-decoration: underline;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px; /* Add some padding for aesthetics */
+  max-width: 1200px; /* Limit the width */
+  margin: 0 auto; /* Center align */
+}
+
+.logo img {
+  height: 10vh; /* Adjust height as needed */
+}
+
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 10PX;
+}
+
+.nav-links li {
+  display: inline-block;
+  margin-right: 30px; /* Add some space between links */
+}
+
+.nav-links li:last-child {
+  margin-right: 0; /* Remove margin for last link */
+}
+
+.nav-links li a {
+  color: #333; /* Link color */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-links li a:hover {
+  color: #007bff; /* Link color on hover */
+}

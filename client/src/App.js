@@ -7,6 +7,7 @@ import Register from './components/UserManage/Register';
 import Login from './components/UserManage/Login';
 import Error from './components/Error/Error';
 import VoiceChat from './components/VoiceChat/VoiceChat';
+import NavBar from './components/Navbar/NavBar';
 
 
 
@@ -15,6 +16,7 @@ function App() {
   return (
     <div className="App">
 <Router>
+  <NavBar/>
       <Routes>
         <Route path="/" element={<Landing/>}/>
         <Route path="/dashboard" exact element={<DashBoard/>} />
