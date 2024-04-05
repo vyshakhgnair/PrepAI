@@ -24,13 +24,18 @@ const Register = () => {
         })
       });
       const data = await response.json();
-      if (data.user) {
+      console.log(data.user);
+      if (data.message === 'User registered successfully') {
         // Registration successful, redirect to landing page or show a success message
+        window.location.href = '/login';
+        
       } else {
         // Show an error message
+        window.location.href = '/register';
       }
     } catch (error) {
       // Handle error
+      window.location.href = '*';
     }
   };
 

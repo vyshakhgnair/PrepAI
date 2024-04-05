@@ -20,14 +20,17 @@ const userSchema = new mongoose.Schema({
   password: String,
   phone: String
 });
+
 const User = mongoose.model('User', userSchema);
 
 // Register Route
 app.post('/register', async (req, res) => {
-  const { username, email, password, phone } = req.body;
+    //console.log(req.body)
+  const { uname, email, password, phone } = req.body;
   
   // Create a new user
-  const user = new User({ username, email, password, phone });
+  console.log(uname, email, password, phone)
+  const user = new User({ uname, email, password, phone });
   try {
     // Save the user to MongoDB
     await user.save();
@@ -39,11 +42,14 @@ app.post('/register', async (req, res) => {
 
 // Login Route
 app.post('/login', async (req, res) => {
+    console.log(req.body)
   const { email, password } = req.body;
+  console.log(email,password)
   
   try {
     // Find the user by email and password
     const user = await User.findOne({ email, password });
+    console.log(user)
     if (!user) {
       return res.status(401).json({ error: "Invalid email or password" });
     }

@@ -5,6 +5,7 @@ import './VoiceChat.css';
 
 const VoiceChat = () => {
   const [messages, setMessages] = useState([{ text: 'Hello! Can you tell me about yourself?', from: 'assistant' }]);
+  const [stage, setStage] = useState(0);
 
   useEffect(() => {
     annyang.addCallback('result', (userSaid) => {
@@ -15,6 +16,9 @@ const VoiceChat = () => {
       const response = generateResponse(userSaid[0]);
       const responseMessage = { text: response, from: 'assistant' };
       setMessages(prevMessages => [...prevMessages, responseMessage]);
+
+      // Speak the response
+      speak(response);
     });
 
     annyang.start();
@@ -25,10 +29,36 @@ const VoiceChat = () => {
   }, [messages]);
 
   const generateResponse = (userInput) => {
-    // Add your logic here to generate a response based on the user's input
-    // For now, this just returns a default response
-    
-    return 'Can you elaborate on that?';
+    let response = '';
+    switch(stage) {
+      case 0:
+        response = 'Interesting. So we can start the tech question.';
+        setStage(1);
+        break;
+      case 1:
+        response = fetchQuestionFromDatabase(); // Fetch a question from your database
+        setStage(2);
+        break;
+      case 2:
+        response = 'Can you elaborate on that?';
+        setStage(3);
+        break;
+      default:
+        response = 'Can you elaborate on that?';
+    }
+    return response;
+  };
+  
+
+  const fetchQuestionFromDatabase = () => {
+    // Fetch a question from your database here
+    // This is just a placeholder
+    return 'What is your favorite programming language?';
+  };
+
+  const speak = (text) => {
+    const speech = new SpeechSynthesisUtterance(text);
+    window.speechSynthesis.speak(speech);
   };
 
   return (

@@ -3,12 +3,36 @@ import './user.css';
 import logo from '../../images/logo/prepai-logo.png';
 
 const Login = () => {
-  const [username, setUsername] = useState('');
+  const [email, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Here you can add your login logic, for now, let's just redirect to the landing page
+    try {
+      const response = await fetch('http://localhost:3001/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        })
+      });
+      const data = await response.json();
+      console.log(data.user.email);
+      if (email === data.user.email && password === data.user.password) {
+        // Login successful, redirect to home page or show a success message
+        window.location.href = '/dashboard';
+      } else {
+        // Show an error message
+        alert('Login failed. Please check your email and password.');
+      }
+    } catch (error) {
+      // Handle error
+      console.error('An error occurred:', error);
+      alert('An error occurred. Please try again later.');
+    }
   };
 
   return (
@@ -18,8 +42,8 @@ const Login = () => {
         <h2>Login</h2>
         <input
           type="text"
-          placeholder="Username"
-          value={username}
+          placeholder="Email-id"
+          value={email}
           onChange={(e) => setUsername(e.target.value)}
         />
         <input
@@ -28,7 +52,7 @@ const Login = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Login</button>
+        <button type="submit" onClick={handleSubmit}>Login</button>
       </form>
     </div>
   );
