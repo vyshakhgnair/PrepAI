@@ -6,6 +6,7 @@ import ResumeUploader from './components/ResumeATS/Resumeats';
 import Register from './components/UserManage/Register';
 import Login from './components/UserManage/Login';
 import Error from './components/Error/Error';
+import VoiceChat from './components/VoiceChat/VoiceChat';
 
 
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/ats" element={<ResumeUploader/>} />
         <Route path="/register" element={<Register/>} />
         <Route path="/login" element={<Login/>} />
+        <Route path="/voicechat" element={<VoiceChat/>} />
         <Route path="*" element={<Error/>} />
       </Routes>
   </Router>    
