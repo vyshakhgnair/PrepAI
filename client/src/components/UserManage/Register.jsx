@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './user.css';
-import axios from 'axios';
 import logo from '../../images/logo/prepai-logo.png';
 
 const Register = () => {
@@ -34,7 +33,7 @@ const Register = () => {
       // Handle error
     }
   };
-  
+
   return (
     <div className="login-container">
       <form onSubmit={handleSubmit} className="login-form">
