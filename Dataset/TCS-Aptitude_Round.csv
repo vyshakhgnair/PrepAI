@@ -1,0 +1,26 @@
+Question_Number,Question,OP1,OP2,OP3,OP4,Answer,Explanation
+1,What smallest number should be added to 4456 so that the sum is completely divisible by 6?,4,3,2,1,2,101
+2,The smallest 6 digit number exactly divisible by 111 is:,111111,110011,100011,110101,100011,102
+3,"If the number 5 * 2 is divisible by 6, then * = ?",2,3,6,7,2,103
+4,"Which natural number is nearest to 8485, which is completely divisible by 75 ?",8475,8500,8550,8525,8475,104
+5,72519 X 99999 = ?,725117481,674217481,685126481,696217481,725117481,105
+6,(1000)9 / 1024 = ?,10000,1000,100,10,1000,106
+7,The difference between a positive proper fraction and its reciprocal is 9/20. The fraction is:,3/5,3/10,4/5,4/3,4/5,107
+8,Evaluate: (2.39)2 - (1.61)2 / 2.39 - 1.61,2,4,6,8,4,108
+9,4.036 divided by 0.04 gives ,1.009,10.09,100.9,0.1009,100.9,109
+10,The price of 10 chairs is equal to that of 4 tables. The price of 15 chairs and 2 tables together is Rs. 4000. The total price of 12 chairs and 3 tables is:,Rs. 3500,Rs. 3750,Rs. 3840,Rs. 3900,Rs. 3900,110
+11,(243)n/5 x 32n+1 / 9n x 3n-1,1,2,9,3n,9,111
+12,"Each of the questions given below consists of a question followed by three statements. You have to study the question and the statements and decide which of the statement(s) is/are necessary to answer the question.
+
+By selling an article what is the profit percent gained?
+I. 5% discount is given on list price.
+II. If discount is not given, 20% profit is gained.
+III. The cost price of the articles is Rs. 5000.",Only I and II,Only II and III,Only I and III,"All I, II and III",Only I and II,112
+13,"A, B and C can complete a piece of work in 24, 6 and 12 days respectively. Working together, they will complete the same work in:",1/24 day,7/24 day,3 3/7 days,4 days,3 3/7 days,113
+14,A train speeds past a pole in 15 seconds and a platform 100 m long in 25 seconds. Its length is:,50 m,150 m,200 m,250 m,150 m,114
+15,"An automobile financier claims to be lending money at simple interest, but he includes the interest every six months for calculating the principal. If he is charging an interest of 10%, the effective rate of interest becomes:",10%,10.25%,10.50%,10.05%,10.25%,115
+16,What is the difference between the compound interests on Rs. 5000 for 1 1/2 years at 4% per annum compounded yearly and half-yearly?,Rs. 2.04,Rs. 3.06,Rs. 4.80,Rs. 8.30,Rs. 2.04,116
+17,"The ratio between the perimeter and the breadth of a rectangle is 5 : 1. If the area of the rectangle is 216 sq. cm, what is the length of the rectangle?",16 cm,18 cm,24 cm,20 cm,18 cm,117
+18,"Two ships are sailing in the sea on the two sides of a lighthouse. The angle of elevation of the top of the lighthouse is observed from the ships are 30° and 45° respectively. If the lighthouse is 100 m high, the distance between the two ships is:",173 m,200 m,273 m,300 m,273 m,118
+19,"2, 5, 10, 17, 26, 37, 50, 64",50,26,37,64,64,119
+20,"10, 5, 13, 10, 16, 20, 19, (...)",22,40,38,23,40,120
