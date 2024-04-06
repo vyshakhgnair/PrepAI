@@ -20,10 +20,19 @@
   "homepage": "https://github.com/vyshakhgnair/PrepAI#readme",
   "dependencies": {
     "@supabase/supabase-js": "^2.42.0",
+    "browserify-fs": "^1.0.0",
+    "browserify-zlib": "^0.2.0",
     "cors": "^2.8.5",
     "express": "^4.19.2",
+    "https-browserify": "^1.0.0",
     "mongoose": "^8.3.0",
+    "os-browserify": "^0.3.0",
+    "pdf-parse": "^1.1.1",
     "react-router-dom": "^6.22.3",
-    "supabase": "^1.153.4"
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "supabase": "^1.153.4",
+    "url": "^0.11.3",
+    "util": "^0.12.5"
   }
 }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Resumeats.css';
+//import pdfParse from 'pdf-parse';
 
 const ResumeUploader = () => {
   const [resume, setResume] = useState(null);
@@ -14,10 +15,11 @@ const ResumeUploader = () => {
     setJobDescription(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     // You can perform further actions here, like uploading the resume and job description to a server
-    console.log('Resume:', resume);
+    //const resumeText = await pdfParse(resume);
+    //console.log('Resume:', resumeText);
     console.log('Job Description:', jobDescription);
   };
 
@@ -40,3 +42,5 @@ const ResumeUploader = () => {
 };
 
 export default ResumeUploader;
+
+

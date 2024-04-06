@@ -16,9 +16,6 @@ const VoiceChat = () => {
       const response = generateResponse(userSaid[0]);
       const responseMessage = { text: response, from: 'assistant' };
       setMessages(prevMessages => [...prevMessages, responseMessage]);
-
-      // Speak the response
-      speak(response);
     });
 
     annyang.start();
@@ -39,26 +36,21 @@ const VoiceChat = () => {
         response = fetchQuestionFromDatabase(); // Fetch a question from your database
         setStage(2);
         break;
-      case 2:
-        response = 'Can you elaborate on that?';
-        setStage(3);
-        break;
       default:
         response = 'Can you elaborate on that?';
     }
     return response;
   };
-  
 
-  const fetchQuestionFromDatabase = () => {
-    // Fetch a question from your database here
-    // This is just a placeholder
-    return 'What is your favorite programming language?';
-  };
-
-  const speak = (text) => {
-    const speech = new SpeechSynthesisUtterance(text);
-    window.speechSynthesis.speak(speech);
+  const fetchQuestionFromDatabase = async () => {
+    try {
+      const response = await fetch('http://localhost:3001/Technical');
+      const data = await response.json();
+      return data.question; // Return the question
+    } catch (err) {
+      console.error(err);
+      return 'An error occurred while fetching the question.';
+    }
   };
 
   return (

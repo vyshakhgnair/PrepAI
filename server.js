@@ -21,6 +21,9 @@ const userSchema = new mongoose.Schema({
   phone: String
 });
 
+
+
+
 const User = mongoose.model('User', userSchema);
 
 // Register Route
