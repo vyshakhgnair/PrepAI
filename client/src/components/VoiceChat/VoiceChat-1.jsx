@@ -10,17 +10,23 @@ const VoiceChat = () => {
   useEffect(() => {
     console.log('Starting useeffect');
     annyang.addCallback('result', async (userSaid) => {
-        console.log("🚀 ~ annyang.addCallback ~ userSaid:", userSaid)
+      console.log("🚀 ~ annyang.addCallback ~ userSaid:", userSaid)
+
+      const userMessage = userSaid[0];
+      // console.log("🚀 ~ annyang.addCallback ~ userMe̥ssage:", userMe̥ssage)
+      const newMessages = [...messages, { text: userMessage, from: 'user' }];
+      setMessages(newMessages);
       
-        const userMessage = userSaid[0];
-        const newMessages = [...messages, { text: userMessage, from: 'user' }];
+      // Generate a response
+      const response = await generateResponse(userMessage);
       
-        // Generate a response
-        const response = await generateResponse(userMessage);
-        
-        const responseMessage = { text: response, from: 'assistant' };
-        setMessages([...newMessages, responseMessage]); // Add both user and assistant messages at once
-      });
+      
+      const responseMessage = { text: response, from: 'assistant' };
+      // console.log(responseMessage);
+
+      // Update the state with the new message
+      setMessages(prevMessages => [...prevMessages, responseMessage]);
+    });
 
     annyang.start();
 
@@ -29,17 +35,8 @@ const VoiceChat = () => {
     };
   }, [messages]);
 
-  const jaccardSimilarity = (str1, str2) => {
-    const arr1 = str1.split(' ');
-    const arr2 = str2.split(' ');
-    const set1 = new Set(arr1);
-    const set2 = new Set(arr2);
-    const intersection = new Set([...set1].filter(x => set2.has(x)));
-    const union = new Set([...set1, ...set2]);
-    return intersection.size / union.size;
-  };
-  
   const generateResponse = async (userInput) => {
+    console.log('Starting annyang');
     let response = '';
     switch(stage) {
       case 0:
@@ -48,12 +45,9 @@ const VoiceChat = () => {
         break;
       case 1:
         try {
-          const { question, answer } = await fetchQuestionFromDatabase();
-          const similarity = jaccardSimilarity(userInput, answer);
-          console.log(`Similarity between user input and answer: ${similarity}`);
+          const question = await fetchQuestionFromDatabase(); // Fetch a question from your database
           response = question;
-          setStage(1);
-          
+          setStage(1); // Move to the next stage after fetching the question
         } catch (err) {
           console.error(err);
           response = 'An error occurred while fetching the question.';
@@ -69,8 +63,7 @@ const VoiceChat = () => {
     try {
       const response = await fetch('http://localhost:3001/Technical/T1001');
       const data = await response.json();
-      console.log(data.t_ques,data.t_ans)
-      return { question: data.t_ques, answer: data.t_ans };// Return the question
+      return data.t_ques; // Return the question
     } catch (err) {
       console.error(err);
       throw new Error('An error occurred while fetching the question.');
