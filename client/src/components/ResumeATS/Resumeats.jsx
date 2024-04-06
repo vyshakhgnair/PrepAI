@@ -1,14 +1,25 @@
 import React, { useState } from 'react';
 import './Resumeats.css';
-//import pdfParse from 'pdf-parse';
+import { Document, Page } from 'react-pdf/dist/esm/entry.webpack';
+import pdfjs from 'pdfjs-dist';
+
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 const ResumeUploader = () => {
   const [resume, setResume] = useState(null);
   const [jobDescription, setJobDescription] = useState('');
+  const [resumeContent, setResumeContent] = useState('');
 
   const handleResumeUpload = (event) => {
     const file = event.target.files[0];
     setResume(file);
+    // Read the contents of the PDF file
+    const reader = new FileReader();
+    reader.onload = async (event) => {
+      const content = event.target.result;
+      setResumeContent(content);
+    };
+    reader.readAsArrayBuffer(file);
   };
 
   const handleJobDescriptionChange = (event) => {
@@ -17,10 +28,7 @@ const ResumeUploader = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // You can perform further actions here, like uploading the resume and job description to a server
-    //const resumeText = await pdfParse(resume);
-    //console.log('Resume:', resumeText);
-    console.log('Job Description:', jobDescription);
+    // You can perform further actions here, like uploading the resume content and job description to a server
   };
 
   return (
@@ -37,10 +45,14 @@ const ResumeUploader = () => {
         </div>
         <button type="submit" className='submit-button'>Submit</button>
       </form>
+      {resumeContent && (
+        <div>
+          <h2>Resume Content</h2>
+          <pre>{resumeContent}</pre>
+        </div>
+      )}
     </div>
   );
 };
 
 export default ResumeUploader;
-
-

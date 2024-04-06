@@ -22,9 +22,12 @@ function NavBar() {
           <li>
             <Link to="/login">Login</Link>
           </li>
+          <li>
+            <Link to="/register">New User ? <span className='regbtn'>Register here</span></Link>
+          </li>
         </ul>
       </div>
-    </nav>
+    </nav>  
   );
 }
 

@@ -1,0 +1,145 @@
+.user-profile-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 50px;
+  }
+  .user-profile-image img {
+    width: auto;
+    height: 20vh;
+    border-radius: 10;
+  }
+  .user-ats-card h1{
+    color: #002df7;
+    font-size: 60px;
+    margin-top: 10px;
+  }
+
+  .test-scores-table {
+    font-family: 'Roboto', sans-serif;
+    margin: 20px;
+    color: #fff;
+  }
+  
+  .test-scores-table h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .test-scores-table table {
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .test-scores-table th,
+  .test-scores-table td {
+    padding: 15px;
+    text-align: center;
+  }
+  
+  .test-scores-table th {
+    background-color: #4ca8af;
+  }
+  
+  .test-scores-table tbody tr:nth-child(even) {
+    background-color: #333;
+  }
+  .test-scores-table tbody tr:nth-child(odd) {
+    color: #000000;
+  }
+  
+  .test-scores-table tbody tr:hover {
+    background-color: #555;
+  }
+  
+  .test-scores-table tbody tr:hover td {
+    color: #fff;
+  }
+  
+  .gallery {
+    text-align: center;
+    height: auto;
+  }
+  
+  .scrollable-container {
+    max-height: 20vh; 
+    overflow-y: auto;
+    border-radius: 20px;
+  }
+  .cards {
+    width: 100%;
+    margin: 10px;
+    border-radius: 20px;
+    background-color: #222;
+    color: #fff;
+
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15vh, 1fr));
+    gap: 10px;
+  }
+  
+  .grid-item {
+    width: 10vh;
+  }
+  
+  .square-image {
+    width: 10vh;
+    height: 100%;
+    object-fit: contain; /* Ensures image fills the square */
+  }
+
+  .reference-cards {
+    font-family: 'Roboto', sans-serif;
+    margin: 20px;
+    color: #333;
+  }
+  
+  .reference-cards h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .refcard {
+    width: 30vh;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .refcard h2 {
+    margin-bottom: 10px;
+  }
+  
+  .refcard a {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    color: #fff;
+    background-color: #007bff;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .refcard a:hover {
+    background-color: #0056b3;
+  }
+  
