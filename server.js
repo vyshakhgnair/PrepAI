@@ -62,6 +62,38 @@ app.post('/login', async (req, res) => {
   }
 });
 
+const Technical = new mongoose.Schema({
+  job_id: String,
+  t_ques_no: String,
+  t_ques: String,
+  t_ans: String
+});
+
+const TechQuestion = mongoose.model('Technical', Technical);
+
+
+// Route to get a question by job_id and t_ques_no
+app.get('/Technical/:job_id', async (req, res) => {
+  try {
+    console.log('test')
+    console.log(req.params.job_id)
+    const question = await TechQuestion.findOne({ job_id: req.params.job_id});
+    console.log(question) 
+    if (question) {
+      res.json(question);
+    } else {
+      res.status(404).send('Question not found');
+    }
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+
+
+
+
+
 // Start the server
 app.listen(3001, () => {
   console.log('Server is running on port 3001');

@@ -8,13 +8,17 @@ const VoiceChat = () => {
   const [stage, setStage] = useState(0);
 
   useEffect(() => {
-    annyang.addCallback('result', (userSaid) => {
-      const newMessages = [...messages, { text: userSaid[0], from: 'user' }];
+    annyang.addCallback('result', async (userSaid) => {
+      const userMessage = userSaid[0];
+      const newMessages = [...messages, { text: userMessage, from: 'user' }];
       setMessages(newMessages);
 
       // Generate a response
-      const response = generateResponse(userSaid[0]);
+      const response = await generateResponse(userMessage);
       const responseMessage = { text: response, from: 'assistant' };
+      console.log(responseMessage);
+
+      // Update the state with the new message
       setMessages(prevMessages => [...prevMessages, responseMessage]);
     });
 
@@ -25,7 +29,7 @@ const VoiceChat = () => {
     };
   }, [messages]);
 
-  const generateResponse = (userInput) => {
+  const generateResponse = async (userInput) => {
     let response = '';
     switch(stage) {
       case 0:
@@ -33,8 +37,14 @@ const VoiceChat = () => {
         setStage(1);
         break;
       case 1:
-        response = fetchQuestionFromDatabase(); // Fetch a question from your database
-        setStage(2);
+        try {
+          const question = await fetchQuestionFromDatabase(); // Fetch a question from your database
+          response = question;
+          setStage(1); // Move to the next stage after fetching the question
+        } catch (err) {
+          console.error(err);
+          response = 'An error occurred while fetching the question.';
+        }
         break;
       default:
         response = 'Can you elaborate on that?';
@@ -44,12 +54,12 @@ const VoiceChat = () => {
 
   const fetchQuestionFromDatabase = async () => {
     try {
-      const response = await fetch('http://localhost:3001/Technical');
+      const response = await fetch('http://localhost:3001/Technical/T1001');
       const data = await response.json();
-      return data.question; // Return the question
+      return data.t_ques; // Return the question
     } catch (err) {
       console.error(err);
-      return 'An error occurred while fetching the question.';
+      throw new Error('An error occurred while fetching the question.');
     }
   };
 
