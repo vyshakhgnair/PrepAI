@@ -1,41 +1,56 @@
 import React, { useState } from 'react';
 import './Resumeats.css';
-import { Page } from 'react-pdf';
-import { getDocument } from 'pdfjs-dist';
 
 const ResumeUploader = () => {
-  const [resume, setResume] = useState(null);
+  const [resumeContent, setResumeContent] = useState('');
   const [jobDescription, setJobDescription] = useState('');
-  const [numPages, setNumPages] = useState(null);
-  const [pdfDoc, setPdfDoc] = useState(null);
+  const [similarityScore, setSimilarityScore] = useState(null);
 
-  const handleResumeUpload = async (event) => {
-    const file = event.target.files[0];
-    setResume(file);
-    const pdfDoc = await getDocument(file).promise;
-    setPdfDoc(pdfDoc);
+  const handleResumeContentChange = (event) => {
+    setResumeContent(event.target.value);
   };
 
   const handleJobDescriptionChange = (event) => {
     setJobDescription(event.target.value);
   };
 
-  const onDocumentLoadSuccess = ({ numPages }) => {
-    setNumPages(numPages);
+  const calculateSimilarityScore = () => {
+    const resumeWords = resumeContent.toLowerCase().split(/\W+/);
+    const jobDescriptionWords = jobDescription.toLowerCase().split(/\W+/);
+    const intersection = resumeWords.filter(word => jobDescriptionWords.includes(word));
+    const similarity = (intersection.length / Math.sqrt(resumeWords.length * jobDescriptionWords.length)) * 100;
+    return similarity.toFixed(2); // Round to 2 decimal places
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // Here you can perform further actions, such as uploading the resume content and job description to a server
+    
+    // Calculate similarity score
+    const score = calculateSimilarityScore();
+    setSimilarityScore(score);
+
+    // Log the resume content, job description, and similarity score to the console
+    console.log('Resume Content:', resumeContent);
+    console.log('Job Description:', jobDescription);
+    console.log('Similarity Score:', score);
+
+    // Here you can perform further actions based on the similarity score
+    // For example, you can display the similarity score to the user or take specific actions depending on the score
   };
 
   return (
     <div>
       <h1>Resume ATS Checker</h1>
+      {similarityScore !== null && (
+        <div>
+          <h2>ATS Score</h2>
+          <p>Score: {similarityScore}</p>
+        </div>
+      )}
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="resume">Upload Resume PDF:</label>
-          <input type="file" id="resume" accept=".pdf" onChange={handleResumeUpload} />
+          <label htmlFor="resumeContent">Paste or type your resume:</label>
+          <textarea id="resumeContent" value={resumeContent} onChange={handleResumeContentChange} />
         </div>
         <div>
           <label htmlFor="jobDescription">Add Job Description:</label>
@@ -43,37 +58,7 @@ const ResumeUploader = () => {
         </div>
         <button type="submit" className='submit-button'>Submit</button>
       </form>
-      {pdfDoc && (
-        <div>
-          <h2>Resume Preview</h2>
-          <Page pageNumber={1} width={pdfDoc.getPage(1).view[2]} height={pdfDoc.getPage(1).view[3]}>
-            {({ page }) => (
-              <div>
-                <div style={{ position: 'relative', height: '100%', width: '100%' }}>
-                  <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
-                    <svg width="100%" height="100%" viewBox={`0 0 ${page.view[2]} ${page.view[3]}`}>
-                      {page.content.items.map((item, index) => {
-                        if (item.kind === 'path') {
-                          return (
-                            <path key={index} fill={item.color} d={item.path} />
-                          );
-                        } else if (item.kind === 'text') {
-                          return (
-                            <text key={index} x={item.x} y={item.y} fill={item.color} fontFamily={item.fontFamily} fontSize={item.fontSize}>
-                              {item.text}
-                            </text>
-                          );
-                        }
-                        return null;
-                      })}
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            )}
-          </Page>
-        </div>
-      )}
+      
     </div>
   );
 };
