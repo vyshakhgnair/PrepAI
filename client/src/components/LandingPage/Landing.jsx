@@ -2,6 +2,7 @@
 import React from 'react';
 import './Landing.css';
 import logo from '../../images/logo/prepai-logo.png';
+import { Link } from 'react-router-dom';
 
 function Landing() {
   return (
@@ -12,7 +13,9 @@ function Landing() {
           <div className="hero-content">
             <h2 className="hero-title">Craft your Success Story</h2>
             <p className="hero-description">Ensure complete readiness for real-time interview simulations by using PrepAI's customized interview preparation, which offers company-specific questions that are in line with your job description.</p>
-            <button className="cta-button">Get Started</button>
+            <Link to="/register">
+              <button className="cta-button">Get Started</button>
+            </Link>
           </div>
           <img src="https://img.freepik.com/free-vector/online-interview-employee-employer_23-2148620898.jpg?w=826&t=st=1712327177~exp=1712327777~hmac=744553b5a742d8615df8113b54919e3e03ba7bceca0b7bc7e647c69fba920585" alt="Futuristic Hero" className="hero-image" />
         </div>
@@ -33,7 +36,9 @@ function Landing() {
           <div className="feature-content">
             <h2 className="feature-title">Company-based Questions</h2>
             <p className="feature-description">Prepare confidently for interviews with company-specific questions tailored to top employers. Gain insights into interview processes, practice scenarios, and receive feedback to excel in your interviews.</p>
-            <button className="cta-button">Get Started</button>
+            <Link to="/login"> 
+              <button className="cta-button">Know More</button>
+            </Link>
           </div>
           <img src="https://img.freepik.com/free-vector/marketing-professional-presenting-financial-chart-boss_74855-10928.jpg?w=2000" alt="Futuristic Hero" className="hero-image" />
         </div>
@@ -42,14 +47,18 @@ function Landing() {
           <div className="feature-content">
             <h2 className="feature-title">ATS Resume Checker</h2>
             <p className="feature-description">Ensure your resume gets past Applicant Tracking Systems (ATS) with our AI-powered Resume Checker. Scan, analyze, and optimize your resume for keywords and formatting to increase your chances of landing interviews.</p>
-            <button className="cta-button">Get Started</button>
+            <Link to="/ats">
+              <button className="cta-button">Know More</button>
+            </Link>
           </div>
         </div>
         <div className="feature-container">
           <div className="feature-content">
             <h2 className="feature-title">Performance Report</h2>
             <p className="feature-description">Our AI analyzes your answers, providing a similarity score to gauge how closely your responses align with ideal answers.</p>
-            <button className="cta-button">Get Started</button>
+            <Link to="/login">  
+              <button className="cta-button">Know More</button>
+            </Link>
           </div>
           <img src="https://img.freepik.com/free-vector/office-workers-analyzing-researching-business-data_74855-4445.jpg?w=1380" alt="Futuristic Hero" className="hero-image" />
         </div>
